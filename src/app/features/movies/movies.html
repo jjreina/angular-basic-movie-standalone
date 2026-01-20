@@ -1,1 +1,12 @@
-<p>movies works!</p>
+<div class="container-movies">
+  @for (movie of this.movies; track movie.id) {
+    <div class="card" style="width: 18rem">
+      <img src="{{ movie.image }}" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <p class="card-text"><strong>Movie: </strong>{{ movie.title }}</p>
+        <p class="card-text"><strong>Premiere: </strong>{{ movie.year }}</p>
+        <p class="card-text"><strong>Stars: </strong>{{ movie.stars }}</p>
+      </div>
+    </div>
+  }
+</div>
