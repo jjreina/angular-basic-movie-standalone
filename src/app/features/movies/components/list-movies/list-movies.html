@@ -1,0 +1,5 @@
+<div class="container-movies">
+  @for (movie of this.movies(); track movie.id) {
+    <app-card-movie [movie]="movie" />
+  }
+</div>
