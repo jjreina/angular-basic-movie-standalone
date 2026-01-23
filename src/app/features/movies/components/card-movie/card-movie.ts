@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Movie } from '../../models/movie';
 
 @Component({
@@ -8,5 +8,11 @@ import { Movie } from '../../models/movie';
   styleUrl: './card-movie.css',
 })
 export class CardMovie {
-  public movie = input<Movie>();
+  public movie = input.required<Movie>();
+
+  protected onMovieSelected = output<string>();
+
+  protected selectMovie(title: string): void {
+    this.onMovieSelected.emit(title);
+  }
 }

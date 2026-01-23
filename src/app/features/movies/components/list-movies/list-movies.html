@@ -1,5 +1,6 @@
+<h3 #selectedMovie>Movie Selected: {{ this.selectedMovie }}</h3>
 <div class="container-movies">
   @for (movie of this.movies(); track movie.id) {
-    <app-card-movie [movie]="movie" />
+    <app-card-movie [movie]="movie" (onMovieSelected)="setTitle($event)" />
   }
 </div>

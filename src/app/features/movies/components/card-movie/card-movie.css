@@ -4,8 +4,25 @@ p {
   font-style: italic;
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-body {
+  flex: 1;
+}
+
 .card-img-top {
   width: 100%;
   height: 25vw;
   object-fit: cover;
+}
+
+.button-container {
+  display: flex;
+  align-self: flex-end;
+  margin: 0px 10px 5px 0px;
+  gap: 5px;
 }

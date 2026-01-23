@@ -10,4 +10,9 @@ import { CardMovie } from '../card-movie/card-movie';
 })
 export class ListMovies {
   public movies = input<Movie[]>();
+  protected selectedMovie = '';
+
+  protected setTitle(title: string): void {
+    this.selectedMovie = title;
+  }
 }
