@@ -1,1 +1,9 @@
-<app-list-movies [movies]="moviesApi.movies"></app-list-movies>
+@if (
+  moviesApi.getMoviesResource.hasValue() && moviesApi.getMoviesResource.value().movies.length > 0
+) {
+  <app-list-movies [movies]="moviesApi.getMoviesResource.value().movies"></app-list-movies>
+} @else if (moviesApi.getMoviesResource.isLoading()) {
+  <p>Loading movies...</p>
+} @else if (moviesApi.getMoviesResource.error()) {
+  <p>Error: {{ moviesApi.getMoviesResource.error()?.message }}</p>
+}
