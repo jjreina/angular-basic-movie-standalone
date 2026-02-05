@@ -9,10 +9,14 @@ import { Movie } from '../../models/movie';
 })
 export class CardMovie {
   public movie = input.required<Movie>();
-
   protected onMovieSelected = output<string>();
+  protected onMovieDelete = output<string>();
 
   protected selectMovie(title: string): void {
     this.onMovieSelected.emit(title);
+  }
+
+  protected deleteMovie(id: string): void {
+    this.onMovieDelete.emit(id);
   }
 }

@@ -1,5 +1,8 @@
 @if (moviesApi.getAllMovies.hasValue() && moviesApi.getAllMovies.value().movies.length > 0) {
-  <app-list-movies [movies]="moviesApi.getAllMovies.value().movies"></app-list-movies>
+  <app-list-movies
+    [movies]="moviesApi.getAllMovies.value().movies"
+    (onEmitIdMovie)="removeMovieById($event)"
+  ></app-list-movies>
 } @else if (moviesApi.getAllMovies.isLoading()) {
   <p>Loading movies...</p>
 } @else if (moviesApi.getAllMovies.error()) {

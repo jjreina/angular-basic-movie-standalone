@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Movie } from '../../models/movie';
 import { CardMovie } from '../card-movie/card-movie';
 
@@ -10,9 +10,14 @@ import { CardMovie } from '../card-movie/card-movie';
 })
 export class ListMovies {
   public movies = input<Movie[]>();
+  public onEmitIdMovie = output<string>();
   protected selectedMovie = '';
 
   protected setTitle(title: string): void {
     this.selectedMovie = title;
+  }
+
+  protected emitIdMovie(id: string): void {
+    this.onEmitIdMovie.emit(id);
   }
 }
