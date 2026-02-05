@@ -1,9 +1,7 @@
-@if (
-  moviesApi.getMoviesResource.hasValue() && moviesApi.getMoviesResource.value().movies.length > 0
-) {
-  <app-list-movies [movies]="moviesApi.getMoviesResource.value().movies"></app-list-movies>
-} @else if (moviesApi.getMoviesResource.isLoading()) {
+@if (moviesApi.getAllMovies.hasValue() && moviesApi.getAllMovies.value().movies.length > 0) {
+  <app-list-movies [movies]="moviesApi.getAllMovies.value().movies"></app-list-movies>
+} @else if (moviesApi.getAllMovies.isLoading()) {
   <p>Loading movies...</p>
-} @else if (moviesApi.getMoviesResource.error()) {
-  <p>Error: {{ moviesApi.getMoviesResource.error()?.message }}</p>
+} @else if (moviesApi.getAllMovies.error()) {
+  <p>Error: {{ moviesApi.getAllMovies.error()?.message }}</p>
 }

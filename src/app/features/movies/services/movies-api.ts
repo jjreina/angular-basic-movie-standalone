@@ -8,5 +8,5 @@ import { httpResource } from '@angular/common/http';
 export class MoviesApi {
   private readonly url: string = 'http://localhost:3000/response';
 
-  public readonly getMoviesResource = httpResource<MovieResponse>(() => this.url);
+  public readonly getAllMovies = httpResource<MovieResponse>(() => this.url);
 }
