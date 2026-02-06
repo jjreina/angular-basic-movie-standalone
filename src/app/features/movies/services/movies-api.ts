@@ -13,10 +13,9 @@ export class MoviesApi {
   public removeMovieById(idMovie: string): void {
     this.getAllMovies.update((currentMovieList) => {
       if (!currentMovieList) return currentMovieList; // mientras carga. current = this.getAllMovies.value()
-      return {
-        ...currentMovieList, // spread operator mantenemos el resto de las propiedades
-        movies: currentMovieList.movies.filter((movie) => movie.id !== idMovie), // modificamos solo la propiedad movies, filtrando el array para eliminar la película con el id especificado
-      };
+      const newMoviesList = currentMovieList.movies.filter((movie) => movie.id !== idMovie); // creamos un nuevo array de películas filtrando la película con el id especificado
+      currentMovieList.movies = newMoviesList; // modificamos el array de películas eliminando la película con el id especificado
+      return currentMovieList; // devolvemos el objeto actualizado para que se refleje el cambio en la UI
     });
   }
 }
